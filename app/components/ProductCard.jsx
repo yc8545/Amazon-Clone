@@ -23,14 +23,10 @@ const discount = Math.floor(((mrp - product.price) / mrp) * 100);
       }}
     >
       <img
-        src={product.image}
-        alt={product.name}
-        style={{
-          width: "100%",
-          height: "200px",
-          objectFit: "contain",
-        }}
-      />
+  src={product.image}
+  alt={product.name}
+  className="w-full h-48 object-contain"
+/>
 
       <div style={{ fontSize: "12px", color: "#565959" }}>
         Sponsored

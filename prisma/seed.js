@@ -38,7 +38,7 @@ async function main() {
         price: getRandomPrice(),
         discount: getRandomDiscount(),
         stock: Math.floor(Math.random() * 50) + 1,
-        image: "https://via.placeholder.com/200",
+        image: `https://picsum.photos/300/300?random=${Math.floor(Math.random()*1000)}`,
         categoryId: category.id
       });
     }
