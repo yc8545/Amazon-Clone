@@ -8,7 +8,33 @@ export default function CheckoutPage() {
 const router = useRouter();
   const [selectedPayment, setSelectedPayment] = useState("");
 const [orderPlaced, setOrderPlaced] = useState(false);
+const placeOrder = () => {
+  if (cart.length === 0) return;
 
+  const newOrder = {
+    id: Date.now(),
+    items: cart,
+    total: cart.reduce((acc, item) => acc + item.price, 0),
+  };
+
+  // GET old orders
+  const existingOrders =
+    JSON.parse(localStorage.getItem("orders")) || [];
+
+  // SAVE new order
+  localStorage.setItem(
+    "orders",
+    JSON.stringify([...existingOrders, newOrder])
+  );
+
+  console.log("Saved Orders:", [...existingOrders, newOrder]); // DEBUG
+
+  // CLEAR CART AFTER SAVING
+  localStorage.removeItem("cart");
+
+  setCart([]);
+  setOrderPlaced(true);
+};
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem("cart")) || [];
     setCart(stored);
@@ -27,10 +53,9 @@ const handleOrder = () => {
     return;
   }
 
-  setOrderPlaced(true);
+  placeOrder(); // 🔥 THIS WAS MISSING
 
   setTimeout(() => {
-    localStorage.removeItem("cart");
     router.push("/");
   }, 2000);
 };

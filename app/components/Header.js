@@ -1,8 +1,13 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-export default function Header({ setSelectedCategory, setSearch, products ,cart}) {
+import { useRouter } from "next/navigation";
 
+
+
+
+export default function Header({ setSelectedCategory, setSearch, products ,cart}) {
+  const router = useRouter();
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setLocalCategory] = useState("All");
   const [searchText, setSearchText] = useState("");
@@ -178,10 +183,12 @@ export default function Header({ setSelectedCategory, setSearch, products ,cart}
         </div>
 
         {/* Orders */}
-        <div style={{ fontSize: "12px" }}>
-          <div>Returns</div>
-          <strong>& Orders</strong>
-        </div>
+        <p
+  className="cursor-pointer hover:underline"
+  onClick={() => router.push("/orders")}
+>
+  Returns & Orders
+</p>
 
 
         {/* Cart */}
