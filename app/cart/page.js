@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
+import Link from "next/link";
 export default function CartPage() {
   const [cart, setCart] = useState([]);
 
@@ -163,22 +163,23 @@ export default function CartPage() {
         </h3>
 
         {/* BUTTON */}
-        <button
-  style={{
-    width: "100%",
-    background: "#FFD814",
-    color: "#0F1111",
-    border: "none",
-    padding: "12px",
-    borderRadius: "25px",
-    marginTop: "10px",
-    fontWeight: "bold",
-    cursor: "pointer",
-    boxShadow: "0 2px 5px rgba(0,0,0,0.2)",
-  }}
->
-          Proceed to Buy
-        </button>
+        
+
+<Link href="/checkout">
+  <button
+    style={{
+      width: "100%",
+      background: "#FFD814",
+      padding: "12px",
+      borderRadius: "25px",
+      border: "none",
+      fontWeight: "bold",
+      cursor: "pointer",
+    }}
+  >
+    Proceed to Buy
+  </button>
+</Link>
 
         {/* EMI BOX */}
         <div
