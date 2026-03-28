@@ -1,4 +1,5 @@
 "use client";
+ import { useRouter } from "next/navigation";
 
 export default function ProductCard({ product, addToCart }) {
   const rating = (Math.random() * 2 + 3).toFixed(1);
@@ -9,10 +10,16 @@ const discount = Math.floor(((mrp - product.price) / mrp) * 100);
 
   const deliveryDays = Math.floor(Math.random() * 5 + 2);
   const deliveryDate = new Date();
+ 
+
+const router = useRouter();
+
+
   deliveryDate.setDate(deliveryDate.getDate() + deliveryDays);
 
   return (
-    <div
+    <div onClick={() => router.push(`/product/${product.id}`)}>
+      <div
       style={{
         boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
         background: "white",
@@ -89,5 +96,7 @@ const discount = Math.floor(((mrp - product.price) / mrp) * 100);
   Add to cart
 </button>
     </div>
+    </div>
+    
   );
 }
