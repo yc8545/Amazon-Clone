@@ -23,4 +23,23 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  background-color: #eaeded;
+}
+
+
+input::placeholder {
+  color: #6b7280;
+}
+.search-bar {
+  display: flex;
+  flex: 1;
+  margin: 0 20px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: white;
+}
+
+/* 🔥 GLOW EFFECT */
+.search-bar:focus-within {
+  box-shadow: 0 0 0 3px #f3a847;
 }
