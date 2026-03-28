@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
-
-export default function Header({ setSelectedCategory, setSearch, products }) {
+import Link from "next/link";
+export default function Header({ setSelectedCategory, setSearch, products ,cart}) {
 
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setLocalCategory] = useState("All");
@@ -19,6 +19,11 @@ export default function Header({ setSelectedCategory, setSearch, products }) {
       .then((res) => res.json())
       .then((data) => setCategories(data));
   }, []);
+
+  const cartCount = (cart || []).reduce(
+  (total, item) => total + item.quantity,
+  0
+);
 
   return (
     <div>
@@ -178,8 +183,12 @@ export default function Header({ setSelectedCategory, setSearch, products }) {
           <strong>& Orders</strong>
         </div>
 
+
         {/* Cart */}
-        <div style={{ fontWeight: "bold" }}>🛒 Cart</div>
+        <Link href="/cart" style={{ fontWeight: "bold", color: "white" }}>
+  🛒 Cart ({cartCount})
+</Link>
+       
       </div>
 
       {/* BOTTOM NAV */}

@@ -1,6 +1,6 @@
 "use client";
 
-export default function ProductCard({ product }) {
+export default function ProductCard({ product, addToCart }) {
   const rating = (Math.random() * 2 + 3).toFixed(1);
   const reviews = Math.floor(Math.random() * 5000 + 500);
 
@@ -74,20 +74,24 @@ const discount = Math.floor(((mrp - product.price) / mrp) * 100);
         <strong>{deliveryDate.toDateString()}</strong>
       </div>
 
+      
+
       <button
-        style={{
-          marginTop: "10px",
-          width: "100%",
-          background: "#ffd814",
-          border: "none",
-          padding: "10px",
-          borderRadius: "20px",
-          fontWeight: "bold",
-          cursor: "pointer",
-        }}
-      >
-        Add to cart
-      </button>
+  onClick={() => addToCart(product)} 
+  style={{
+    marginTop: "10px",
+    width: "100%",
+    background: "#FFD814",
+    color: "#0F1111",
+    border: "none",
+    padding: "10px",
+    borderRadius: "20px",
+    fontWeight: "bold",
+    cursor: "pointer",
+  }}
+>
+  Add to cart
+</button>
     </div>
   );
 }

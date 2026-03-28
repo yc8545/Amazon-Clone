@@ -11,12 +11,49 @@ export default function Home() {
   const [products, setProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
 
+  const [cart, setCart] = useState([]);
+
+  const addToCart = (product) => {
+  const deliveryDays = Math.floor(Math.random() * 5 + 2);
+  const deliveryDate = new Date();
+  deliveryDate.setDate(deliveryDate.getDate() + deliveryDays);
+
+  setCart((prevCart) => {
+    const existing = prevCart.find((item) => item.id === product.id);
+
+    if (existing) {
+      return prevCart.map((item) =>
+        item.id === product.id
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
+    } else {
+      return [
+        ...prevCart,
+        {
+          ...product,
+          quantity: 1,
+          deliveryDate: deliveryDate.toDateString(), // 🔥 ADD THIS
+        },
+      ];
+    }
+  });
+};
+
   // ✅ 2. FETCH DATA
   useEffect(() => {
     fetch("/api/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
+
+  useEffect(() => {
+  const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+  setCart(storedCart);
+}, []);
+useEffect(() => {
+  localStorage.setItem("cart", JSON.stringify(cart));
+}, [cart]);
 
   // ✅ 3. FILTER AFTER STATE EXISTS
   const filteredProducts = products.filter((p) => {
@@ -36,6 +73,7 @@ export default function Home() {
   setSelectedCategory={setSelectedCategory}
   setSearch={setSearch}
   products={products}   
+  cart={cart}
 />
 
       <div style={{ padding: "20px" }}>
@@ -48,8 +86,12 @@ export default function Home() {
             gap: "20px",
           }}
         >
-          {filteredProducts.map((product) => (
-  <ProductCard key={product.id} product={product} />
+          {filteredProducts.map((p) => (
+  <ProductCard 
+  key={p.id} 
+  product={p} 
+  addToCart={addToCart}
+/>
 ))}
         </div>
       </div>
