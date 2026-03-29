@@ -103,6 +103,76 @@ Order confirmation page includes:
 
 ---
 
+
+## 🔍 Search Functionality
+
+The application includes a dynamic product search feature that allows users to find items efficiently.
+
+### ✅ How Search Works
+- Users can search products using:
+  - **Product Name** (e.g., `Electronics Product 5`)
+  - **Category Name** (e.g., `Electronics`, `Fashion`)
+  - **Keywords from Description** (e.g., `Best Electronics product`)
+
+### 🔎 Example Search Queries
+Try searching with:
+- `Electronics`
+- `Fashion Product 10`
+- `Books Product`
+- `Best Toys`
+- `Home & Kitchen Product 3`
+
+The search system supports:
+- Partial matching (no exact match required)
+- Case-insensitive queries
+
+---
+
+## 🗂️ Product Categories
+
+The platform organizes products into the following predefined categories:
+
+- 📱 Electronics  
+- 👗 Fashion  
+- 📚 Books  
+- 🏠 Home & Kitchen  
+- 💄 Beauty  
+- 🧸 Toys  
+- 🏋️ Sports  
+- 🚗 Automotive  
+- 🛒 Grocery  
+- ❤️ Health  
+
+Each category contains **20 dynamically generated products**, resulting in **200+ products** in total.
+
+---
+
+## 📦 Product Data Generation (Seeding Logic)
+
+- Products are generated using a custom script with:
+  - Random prices (₹100 – ₹5100)
+  - Random discounts (0% – 30%)
+  - Random stock availability
+- Images are fetched dynamically using `https://picsum.photos`
+- Each product is linked to its respective category using **Prisma ORM**
+
+---
+
+## 🚀 Data Scale
+
+- 🗂️ 10 Categories  
+- 📦 200+ Products  
+- 🔁 Fully dynamic seeded data  
+
+---
+
+## 🧠 Developer Note
+
+Search is designed to simulate real-world e-commerce behavior by:
+- Supporting flexible keyword matching
+- Allowing category-based discovery
+- Providing scalable product data using Prisma
+
 ## ⭐ Bonus Features (Planned / Partial)
 - Responsive design  
 - Advanced filters (price, rating, brand)  
