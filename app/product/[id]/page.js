@@ -45,26 +45,7 @@ export default function ProductPage() {
     return <p className="p-6">Loading...</p>;
   }
 
-  const addToCart = () => {
-    const existing = cart.find((item) => item.id === product.id);
-
-    let updatedCart;
-
-    if (existing) {
-      updatedCart = cart.map((item) =>
-        item.id === product.id
-          ? { ...item, quantity: item.quantity + 1 }
-          : item
-      );
-    } else {
-      updatedCart = [...cart, { ...product, quantity: 1 }];
-    }
-
-    setCart(updatedCart);
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
-
-    alert("Added to cart 😏🔥");
-  };
+ 
 
   const discounted =
     product.price - (product.price * product.discount) / 100;
@@ -149,12 +130,7 @@ return (
         {/* BUTTONS */}
         <div className="flex gap-4">
 
-          <button
-            onClick={addToCart}
-            className="bg-yellow-400 hover:bg-yellow-500 px-6 py-2 rounded font-semibold"
-          >
-            Add to Cart
-          </button>
+          
           
 
         </div>

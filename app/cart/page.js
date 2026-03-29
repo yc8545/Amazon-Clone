@@ -165,7 +165,7 @@ export default function CartPage() {
         {/* BUTTON */}
         
 
-<Link href="/checkout">
+<Link href="/address">
   <button
     style={{
       width: "100%",
@@ -189,7 +189,7 @@ export default function CartPage() {
             padding: "10px",
           }}
         >
-          EMI Available
+          EMI not Available
         </div>
       </div>
     </div>

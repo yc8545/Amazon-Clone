@@ -58,7 +58,7 @@ export default function Header({ setSelectedCategory, setSearch, products ,cart}
         {/* Location */}
         <div style={{ fontSize: "12px" }}>
           <div>Deliver to</div>
-          <strong>Yashika</strong>
+          <strong>Jeffi</strong>
         </div>
 
         {/* 🔥 SEARCH WRAPPER (FIXED) */}
@@ -178,8 +178,8 @@ export default function Header({ setSelectedCategory, setSearch, products ,cart}
 
         {/* Account */}
         <div style={{ fontSize: "12px" }}>
-          <div>Hello, Jeffi</div>
-          <strong>Account & Lists</strong>
+          <div>ohh</div>
+          <strong>Hello, Jeffi</strong>
         </div>
 
         {/* Orders */}
@@ -210,7 +210,7 @@ export default function Header({ setSelectedCategory, setSearch, products ,cart}
           overflowX: "auto",
         }}
       >
-        <strong>☰ All</strong>
+        <strong>soon to come -</strong>
         <span>Fresh</span>
         <span>MX Player</span>
         <span>Sell</span>

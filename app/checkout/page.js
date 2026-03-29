@@ -167,12 +167,9 @@ if (orderPlaced) {
         }}
       >
         <h2 style={{ marginBottom: "10px" }}>
-          Delivering to Yashika Chaudhary
+          Delivering to Jeffi
         </h2>
 
-        <p style={{ fontSize: "14px", color: "#565959" }}>
-          Chandigarh University, Punjab, India
-        </p>
 
         <span
           style={{
