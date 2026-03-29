@@ -80,7 +80,10 @@ const router = useRouter();
       
 
       <button
-  onClick={() => addToCart(product)} 
+   onClick={(e) => {
+    e.stopPropagation();
+    addToCart(product);
+  }}
   style={{
     marginTop: "10px",
     width: "100%",
